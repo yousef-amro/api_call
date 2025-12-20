@@ -8,7 +8,7 @@ class ProductModel extends Equatable {
   final String description;
   final String category;
   final image;
-  final RatingModel ratingModel;
+  final RatingModel rating;
 
   const ProductModel({
     required this.id,
@@ -17,7 +17,7 @@ class ProductModel extends Equatable {
     required this.description,
     required this.category,
     required this.image,
-    required this.ratingModel,
+    required this.rating,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,11 +28,12 @@ class ProductModel extends Equatable {
       'description': description,
       'category': category,
       'image': image,
-      'ratingModel': ratingModel,
+      'ratingModel': rating,
     };
   }
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {
+    print("ProductModel map: $map");
     return ProductModel(
       id: map['id'] as int,
       title: map['title'] as String,
@@ -40,7 +41,7 @@ class ProductModel extends Equatable {
       description: map['description'] as String,
       category: map['category'] as String,
       image: map['image'] as String,
-      ratingModel: RatingModel.fromMap(map['ratingModel']),
+      rating: RatingModel.fromMap(map['rating']),
     );
   }
 
@@ -52,6 +53,6 @@ class ProductModel extends Equatable {
     description,
     category,
     image,
-    ratingModel,
+    rating,
   ];
 }
